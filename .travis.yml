@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vyeluri5/myapp -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true vyeluri5/myapp npm run test
